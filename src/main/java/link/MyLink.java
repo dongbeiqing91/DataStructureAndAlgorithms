@@ -1,10 +1,12 @@
+package link;
+
 /**
  * @author Bei
  * @date 2019-10-09
  */
 
 public class MyLink {
-    Node head = null;
+    private Node head;
 
     public void addNode(int d) {
         Node newNode = new Node(d);
