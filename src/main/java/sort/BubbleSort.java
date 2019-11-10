@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class BubbleSort {
 
-    private int[] sortAsc(int[] toBeSorted) {
+    public int[] sortAsc(int[] toBeSorted) {
         for (int i = 0; i < toBeSorted.length; i++) {
             for (int j = 0; j < toBeSorted.length - i - 1; j++) {
                 if (toBeSorted[j] >= toBeSorted[j + 1]) {
