@@ -25,4 +25,14 @@ public class BinaryTreeArithmeticTest {
         int j = BinaryTreeArithmetic.countLeafNode(completeTreeRoot);
         System.out.println(j);
     }
+
+    @Test
+    public void countLeafNodesWithStack() {
+        BinaryTreeNode fullTreeRoot = BinaryTree.getFullTreeRoot();
+        int i = BinaryTreeArithmetic.countLeafNodesWithStack(fullTreeRoot);
+        System.out.println(i);
+        BinaryTreeNode completeTreeRoot = BinaryTree.getCompleteTreeRoot();
+        int j = BinaryTreeArithmetic.countLeafNodesWithStack(completeTreeRoot);
+        System.out.println(j);
+    }
 }
