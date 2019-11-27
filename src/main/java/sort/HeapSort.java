@@ -16,68 +16,63 @@ import java.util.Arrays;
 
 public class HeapSort {
 
-    int a[] = {49, 38, 65, 97, 76, 131};
+    int a[] = {2, 5, 3, 1, 10, 4}; // 完全树, 用一个数组表示
+    int b[] = {2, 5, 3, 1, 10, 4}; // 完全树, 用一个数组表示
+    int c[] = {10, 5, 4, 3, 2, 1}; // 完全树, 用一个数组表示
+    int d[] = {1, 3, 2, 13, 2, 7}; // 完全树, 用一个数组表示
+
+    void swap(int tree[], int j, int i) {
+        int temp = tree[j];
+        tree[j] = tree[i];
+        tree[i] = temp;
+    }
+
+    void heapify(int tree[], int n, int i) { // 对索引为i的结点做heapify
+        if (i >= n) {
+            return;
+        }
+        int lChild = 2 * i + 1;
+        int rChild = 2 * i + 2;
+        int max = i;
+        if (lChild < n && tree[lChild] > tree[max]) {
+            max = lChild;
+        }
+        if (rChild < n && tree[rChild] > tree[max]) {
+            max = rChild;
+        }
+        if (max != i) { // i已经是最大值, 无需做交换, 否则要做交换
+            swap(tree, max, i);
+            heapify(tree, n, max); // max为被交换的元素的索引, 对其做heapify (因为交换后该元素子树受到了影响)
+        }
+    }
+
+
+    void build_heap(int tree[], int n) { // 建立完整的大顶堆
+        int lastIndex = n - 1;
+        int parent = (lastIndex - 1) / 2;
+        for (int i = parent; i >= 0; i--) { // 从最后一个结点的父节点开始, 向前直到根结点
+            heapify(tree, n, i);
+        }
+    }
+
+    void heapSort(int tree[]) {
+        build_heap(tree, tree.length); // 先建立一个大顶堆
+        for (int i = tree.length - 1; i >= 0; i--) {
+            swap(tree, i, 0); // 交换最后一个结点和根结点
+            heapify(tree, i - 1, 0); // 由于根结点发生变化, 大顶堆不复存在, 要重新恢复大顶堆
+        }
+
+    }
 
     @Test
-    public void testHeapSort() {
-        new HeapSort();
-    }
-
-    public HeapSort() {
-        heapSort(a);
-    }
-
-    public void heapSort(int[] a) {
-        System.out.println("开始排序");
-        int arrayLength = a.length;
-        //循环建堆
-        for (int i = 0; i < arrayLength - 1; i++) {
-            //建堆
-
-            buildMaxHeap(a, arrayLength - 1 - i);
-            //交换堆顶和最后一个元素
-            swap(a, 0, arrayLength - 1 - i);
-            System.out.println(Arrays.toString(a));
-        }
-    }
-
-    private void swap(int[] data, int i, int j) {
-        int tmp = data[i];
-        data[i] = data[j];
-        data[j] = tmp;
-    }
-
-    //对data数组从0到lastIndex建大顶堆
-    private void buildMaxHeap(int[] data, int lastIndex) {
-        //从lastIndex处节点（最后一个节点）的父节点开始
-        for (int i = (lastIndex - 1) / 2; i >= 0; i--) {
-            //k保存正在判断的节点
-            int k = i;
-            System.out.println("i: " + i);
-            //如果当前k节点的子节点存在
-            while (k * 2 + 1 <= lastIndex) {
-                //k节点的左子节点的索引
-                int biggerIndex = 2 * k + 1;
-                //如果biggerIndex小于lastIndex，即biggerIndex+1代表的k节点的右子节点存在
-                if (biggerIndex < lastIndex) {
-                    System.out.println(biggerIndex + " " + lastIndex);
-                    //若果右子节点的值较大
-                    if (data[biggerIndex] < data[biggerIndex + 1]) {
-                        //biggerIndex总是记录较大子节点的索引
-                        biggerIndex++;
-                    }
-                }
-                //如果k节点的值小于其较大的子节点的值
-                if (data[k] < data[biggerIndex]) {
-                    //交换他们
-                    swap(data, k, biggerIndex);
-                    //将biggerIndex赋予k，开始while循环的下一次循环，重新保证k节点的值大于其左右子节点的值
-                    k = biggerIndex;
-                    System.out.println("biggerIndex: " + k);
-                } else {
-                    break;
-                }
-            }
-        }
+    public void heapifyTest() {
+        heapify(d, d.length, 0);
+        System.out.println(Arrays.toString(d));
+        build_heap(a, a.length);
+        System.out.println(Arrays.toString(a));
+        heapSort(b);
+        System.out.println(Arrays.toString(b));
+        heapSort(c);
+        System.out.println(Arrays.toString(c));
     }
 }
