@@ -16,18 +16,18 @@ import java.util.Arrays;
 
 public class HeapSort {
 
-    int a[] = {2, 5, 3, 1, 10, 4}; // 完全树, 用一个数组表示
-    int b[] = {2, 5, 3, 1, 10, 4}; // 完全树, 用一个数组表示
-    int c[] = {10, 5, 4, 3, 2, 1}; // 完全树, 用一个数组表示
-    int d[] = {1, 3, 2, 13, 2, 7}; // 完全树, 用一个数组表示
+    private int []a = {2, 5, 3, 1, 10, 4}; // 完全树, 用一个数组表示
+    private int []b = {2, 5, 3, 1, 10, 4}; // 完全树, 用一个数组表示
+    private int []c = {10, 5, 4, 3, 2, 1}; // 完全树, 用一个数组表示
+    private int []d = {1, 3, 2, 13, 2, 7}; // 完全树, 用一个数组表示
 
-    void swap(int tree[], int j, int i) {
+    private void swap(int[] tree, int j, int i) {
         int temp = tree[j];
         tree[j] = tree[i];
         tree[i] = temp;
     }
 
-    void heapify(int tree[], int n, int i) { // 对索引为i的结点做heapify
+    private void heapify(int[] tree, int n, int i) { // 对索引为i的结点做heapify
         if (i >= n) {
             return;
         }
@@ -47,7 +47,7 @@ public class HeapSort {
     }
 
 
-    void build_heap(int tree[], int n) { // 建立完整的大顶堆
+    private void build_heap(int[] tree, int n) { // 建立完整的大顶堆
         int lastIndex = n - 1;
         int parent = (lastIndex - 1) / 2;
         for (int i = parent; i >= 0; i--) { // 从最后一个结点的父节点开始, 向前直到根结点
@@ -55,7 +55,7 @@ public class HeapSort {
         }
     }
 
-    void heapSort(int tree[]) {
+    private void heapSort(int[] tree) {
         build_heap(tree, tree.length); // 先建立一个大顶堆
         for (int i = tree.length - 1; i >= 0; i--) {
             swap(tree, i, 0); // 交换最后一个结点和根结点
