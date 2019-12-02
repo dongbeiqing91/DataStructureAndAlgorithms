@@ -2,6 +2,12 @@ package sort;
 
 import java.util.Arrays;
 
+/**
+ * 把小的元素往前调（或者把大的元素往后调）
+ * 时间复杂度: 平均O(n2), 最坏O(n2), 最好O(n)
+ * 空间复杂度: O(1)
+ * 稳定性: 稳定
+ */
 public class BubbleSort {
 
     public int[] sortAsc(int[] toBeSorted) {

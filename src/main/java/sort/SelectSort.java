@@ -2,10 +2,16 @@ package sort;
 
 import java.util.Arrays;
 
+/**
+ * 给每个位置选择待排序元素中当前最小的元素。比如给第一个位置选择最小的，在剩余元素里面给第二个位置选择次小的
+ * 时间复杂度: 平均O(n2), 最好O(n2), 最坏O(n2)
+ * 空间复杂度: O(1)
+ * 稳定性: 不稳定
+ */
 public class SelectSort {
-    public int[] selectSort(int[] a) {
+    private int[] selectSort(int[] a) {
         int minIdx, temp;
-        for (int i = 0; i < a.length; i++) {
+        for (int i = 0; i < a.length; i++) { // i < a.length - 1 也行, 因为最后一个数已经是最大的数
             minIdx = i;
             for (int j = i + 1; j < a.length; j++) {
                 if (a[j] < a[minIdx]) {
