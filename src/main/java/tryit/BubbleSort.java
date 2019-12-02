@@ -21,7 +21,7 @@ public class BubbleSort {
         for (int i = 0; i < l; i++) {
             for (int j = i + 1; j < l; j++) {
                 if (a[j] < a[i]) {
-                    BubbleSort.swap(a, i, j);
+                    swap(a, i, j);
                 }
             }
         }
