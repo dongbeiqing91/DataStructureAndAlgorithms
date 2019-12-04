@@ -2,7 +2,13 @@ package sort;
 
 import java.util.Arrays;
 
-public class CountSort { // 计数排序
+/**
+ * 计数排序, 非比较排序, 桶排序思想
+ * 时间复杂度O(n+k)
+ * 空间复杂度O(n+k)
+ * k为整数的范围
+ */
+public class CountSort {
     private int[] sort(int[] arr, int maxVal) {
         int[] newArr = new int[maxVal + 1];
         for (int i = 0; i < arr.length; i++) {
