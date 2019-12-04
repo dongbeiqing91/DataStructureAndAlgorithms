@@ -2,8 +2,13 @@ package sort;
 
 import java.util.Arrays;
 
+/**
+ * 时间复杂度: 平均O(nlogn), 最好O(nlogn), 最坏O(n2)
+ * 空间复杂度: O(nlogn)
+ * 稳定性: 不稳定
+ */
 public class QuickSort {
-    public int[] quickSort(int[] a, int l, int r) {
+    private int[] quickSort(int[] a, int l, int r) {
         if (l < r) {
             int i, j, pivot;
             i = l;
