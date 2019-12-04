@@ -3,6 +3,9 @@ package sort;
 import java.util.ArrayList;
 import java.util.Collections;
 
+/**
+ * 桶排序
+ */
 public class BucketSort {
     public void sort(int[] arr) {
 
