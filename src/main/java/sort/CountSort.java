@@ -9,8 +9,8 @@ import java.util.Arrays;
  * k为整数的范围
  */
 public class CountSort {
-    private int[] sort(int[] arr, int maxVal) {
-        int[] newArr = new int[maxVal + 1];
+    private int[] sort(int[] arr) {
+        int[] newArr = new int[arr.length + 1];
         for (int i = 0; i < arr.length; i++) {
             newArr[arr[i]] += 1;
         }
@@ -29,7 +29,7 @@ public class CountSort {
     public static void main(String[] args) {
         CountSort countSort = new CountSort();
         int[] arr = {5, 4, 3, 2, 1};
-        int[] b = countSort.sort(arr, arr.length);
+        int[] b = countSort.sort(arr);
         System.out.println(Arrays.toString(b));
     }
 }
