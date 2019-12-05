@@ -2,6 +2,12 @@ package sort;
 
 import java.util.Arrays;
 
+/**
+ * 归并排序
+ * 时间复杂度O(nlogn)
+ * 空间复杂度O(n)
+ * 稳定性: 稳定
+ */
 public class MergeSort {
     public static void sort(int[] arr) {
         int[] temp = new int[arr.length];//在排序前，先建好一个长度等于原数组长度的临时数组，避免递归中频繁开辟空间

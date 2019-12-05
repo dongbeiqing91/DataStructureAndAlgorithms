@@ -9,6 +9,7 @@ import java.util.Arrays;
  * 字符串也可以进行基数排序
  * 时间复杂度O(n+k)
  * 空间复杂度O(n+k)
+ * 稳定性: 稳定
  */
 public class RadixSort {
 
@@ -32,8 +33,7 @@ public class RadixSort {
 
             for (int n = arr.length - 1; n >= 0; n--) {
                 int num = arr[n] / division % 10;
-                result[count[num] - 1] = arr[n];
-                count[num]--;
+                result[--count[num]] = arr[n];
             }
 
 

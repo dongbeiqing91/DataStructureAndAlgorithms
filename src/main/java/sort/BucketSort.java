@@ -5,6 +5,9 @@ import java.util.Collections;
 
 /**
  * 桶排序
+ * 时间复杂度O(n+k), 最坏O(n2), 最好O(n)
+ * 空间复杂度O(n+k)
+ * 不常用, 主要使用计数排序和基数排序
  */
 public class BucketSort {
     public void sort(int[] arr) {
@@ -20,7 +23,7 @@ public class BucketSort {
             }
         }
         //桶数
-        int bucketNum = (maxVal - minVal) / arr.length + 1;
+        int bucketNum = (maxVal - minVal) / arr.length + 1; // 也不一定要分arr.length + 1 个桶
         //创建一个二维数组存放桶和桶中的元素
         ArrayList<ArrayList<Integer>> bucketArr = new ArrayList<>(bucketNum);
         for (int i = 0; i < bucketNum; i++) {
@@ -31,7 +34,7 @@ public class BucketSort {
             int num = (value - minVal) / arr.length;
             bucketArr.get(num).add(value);
         }
-        //对每个桶进行排序
+        //对每个桶进行排序 (这就是为什么原版桶排序不常用的原因. 它的派生: 计数排序和基数排序用的更多, 尤其是计数排序)
         for (ArrayList<Integer> integers : bucketArr) {
             Collections.sort(integers);
         }
