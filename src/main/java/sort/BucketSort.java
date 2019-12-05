@@ -5,7 +5,7 @@ import java.util.Collections;
 
 /**
  * 桶排序
- * 时间复杂度O(n+k), 最坏O(n2), 最好O(n)
+ * 时间复杂度O(n+k), 最坏O(n^2), 最好O(n)
  * 空间复杂度O(n+k)
  * 不常用, 主要使用计数排序和基数排序
  */

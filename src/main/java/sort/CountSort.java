@@ -11,7 +11,7 @@ import java.util.Arrays;
  * 时间复杂度O(n+k)
  * 空间复杂度O(n+k)
  * k为整数的范围
- * 稳定性: 不稳定, 如何改成稳定?
+ * 稳定性: 不稳定, 思考:如何改成稳定?
  */
 public class CountSort {
     public static int[] sort(int[] arr, int maxVal) {
