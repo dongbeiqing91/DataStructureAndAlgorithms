@@ -5,8 +5,10 @@ package link;
  * @date 2019-10-09
  */
 public class Node {
-    Node next;
+    public Node next;
     public int data;
+
+    public Node() {}
 
     public Node(int data) {
         this.data = data;
