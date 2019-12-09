@@ -1,6 +1,7 @@
 package sort;
 
 import org.junit.Test;
+import util.CommonUtils;
 
 import java.util.Arrays;
 
@@ -20,18 +21,7 @@ import java.util.Arrays;
 
 public class HeapSort {
 
-    private int []a = {2, 5, 3, 1, 10, 4}; // 完全树, 用一个数组表示
-    private int []b = {2, 5, 3, 1, 10, 4}; // 完全树, 用一个数组表示
-    private int []c = {10, 5, 4, 3, 2, 1}; // 完全树, 用一个数组表示
-    private int []d = {1, 3, 2, 13, 2, 7}; // 完全树, 用一个数组表示
-
-    private void swap(int[] tree, int j, int i) {
-        int temp = tree[j];
-        tree[j] = tree[i];
-        tree[i] = temp;
-    }
-
-    private void heapify(int[] tree, int n, int i) { // 对索引为i的结点做heapify
+    private static void heapify(int[] tree, int n, int i) { // 对索引为i的结点做heapify
         if (i >= n) {
             return;
         }
@@ -45,13 +35,13 @@ public class HeapSort {
             max = rChild;
         }
         if (max != i) { // i已经是最大值, 无需做交换, 否则要做交换
-            swap(tree, max, i);
+            CommonUtils.swap(tree, max, i);
             heapify(tree, n, max); // max为被交换的元素的索引, 对其做heapify (因为交换后该元素子树受到了影响)
         }
     }
 
 
-    private void build_heap(int[] tree, int n) { // 建立完整的大顶堆
+    private static void build_heap(int[] tree, int n) { // 建立完整的大顶堆
         int lastIndex = n - 1;
         int parent = (lastIndex - 1) / 2;
         for (int i = parent; i >= 0; i--) { // 从最后一个结点的父节点开始, 向前直到根结点
@@ -59,17 +49,20 @@ public class HeapSort {
         }
     }
 
-    private void heapSort(int[] tree) {
+    private static void heapSort(int[] tree) {
         build_heap(tree, tree.length); // 先建立一个大顶堆
         for (int i = tree.length - 1; i >= 0; i--) {
-            swap(tree, i, 0); // 交换最后一个结点和根结点
+            CommonUtils.swap(tree, i, 0); // 交换最后一个结点和根结点
             heapify(tree, i - 1, 0); // 由于根结点发生变化, 大顶堆不复存在, 要重新恢复大顶堆
         }
 
     }
 
-    @Test
-    public void heapifyTest() {
+    public static void main(String[] args) {
+        int []a = {2, 5, 3, 1, 10, 4}; // 完全树, 用一个数组表示
+        int []b = {2, 5, 3, 1, 10, 4}; // 完全树, 用一个数组表示
+        int []c = {10, 5, 4, 3, 2, 1}; // 完全树, 用一个数组表示
+        int []d = {1, 3, 2, 13, 2, 7}; // 完全树, 用一个数组表示
         heapify(d, d.length, 0);
         System.out.println(Arrays.toString(d));
         build_heap(a, a.length);

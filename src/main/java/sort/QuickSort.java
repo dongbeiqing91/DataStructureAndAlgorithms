@@ -11,7 +11,7 @@ import java.util.Arrays;
  * 稳定性: 不稳定
  */
 public class QuickSort {
-    private int[] quickSort(int[] a, int l, int r) {
+    public static int[] quickSort(int[] a, int l, int r) {
         if (l < r) {
             int i, j, pivot;
             i = l;
@@ -42,10 +42,8 @@ public class QuickSort {
     }
 
     public static void main(String[] args) {
-        QuickSort q = new QuickSort();
         int[] a = {15, 5, 9, 18, 2, 21, 1, 4};
-        int[] b = q.quickSort(a, 0, a.length - 1);
-        System.out.println("Final Result:");
+        int[] b = quickSort(a, 0, a.length - 1);
         System.out.println(Arrays.toString(b));
     }
 }

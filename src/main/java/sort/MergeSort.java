@@ -9,7 +9,7 @@ import java.util.Arrays;
  * 稳定性: 稳定
  */
 public class MergeSort {
-    public static void sort(int[] arr) {
+    public static void mergeSort(int[] arr) {
         int[] temp = new int[arr.length];//在排序前，先建好一个长度等于原数组长度的临时数组，避免递归中频繁开辟空间
         sort(arr, 0, arr.length - 1, temp);
     }
@@ -51,7 +51,7 @@ public class MergeSort {
 
     public static void main(String[] args) {
         int[] arr = {17, 22, 50, 20, 16, 12, 8, 1};
-        MergeSort.sort(arr);
+        mergeSort(arr);
         System.out.println(Arrays.toString(arr));
     }
 

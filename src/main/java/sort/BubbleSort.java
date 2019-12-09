@@ -1,5 +1,7 @@
 package sort;
 
+import util.CommonUtils;
+
 import java.util.Arrays;
 
 /**
@@ -10,23 +12,18 @@ import java.util.Arrays;
  */
 public class BubbleSort {
 
-    public int[] sortAsc(int[] toBeSorted) {
-        for (int i = 0; i < toBeSorted.length; i++) {
-            for (int j = 0; j < toBeSorted.length - i - 1; j++) {
-                if (toBeSorted[j] >= toBeSorted[j + 1]) {
-                    int temp = toBeSorted[j];
-                    toBeSorted[j] = toBeSorted[j + 1];
-                    toBeSorted[j + 1] = temp;
-                }
+    public static int[] bubbleSortAsc(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr.length - i - 1; j++) {
+                CommonUtils.swap(arr, j, j + 1);
             }
         }
-        return toBeSorted;
+        return arr;
     }
 
     public static void main(String[] args) {
-        int[] toBeSorted = {5, 4, 3, 2, 1};
-        BubbleSort bubbleSort = new BubbleSort();
-        int[] ints = bubbleSort.sortAsc(toBeSorted);
+        int[] arr = {5, 4, 3, 2, 1};
+        int[] ints = bubbleSortAsc(arr);
         System.out.println(Arrays.toString(ints));
     }
 }

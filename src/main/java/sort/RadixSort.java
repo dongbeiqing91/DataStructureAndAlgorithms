@@ -18,7 +18,6 @@ public class RadixSort {
         int[] count = new int[10]; // 计数排序要用的数组 (桶)
 
         for (int i = 0; i < 3; i++) { // 3为最高的位数, 遍历一遍数组拿到最高位数再传过来更好
-
             //求当前位数上的数字
             int division = (int)Math.pow(10, i); // 例如421这个数, 421/(10^0) % 10 = 1, 421/(10^1) % 10 = 2, 421/(10^2) % 10 = 4
             for (int value : arr) {

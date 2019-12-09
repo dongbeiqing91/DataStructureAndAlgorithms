@@ -1,6 +1,7 @@
 package sort;
 
 import org.junit.Test;
+import util.CommonUtils;
 
 import java.util.Arrays;
 
@@ -11,7 +12,7 @@ import java.util.Arrays;
  * 稳定性: 稳定
  */
 public class InsertSort {
-    public void insertSort(int[] arr) {
+    public static void insertSort(int[] arr) {
         int i, j, k;
         for (i = 1; i < arr.length; i++) {
             // 为arr[i]在 arr[0] ~ arr[i-1] 之间找到一个合适的位置
@@ -36,11 +37,24 @@ public class InsertSort {
         }
     }
 
-    @Test
-    public void test() {
-        int a[] = {3, 4, 6, 2, 1, 3};
+    // 这个写法有点像冒泡
+    public static void insertSort2(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = i; j > 0; j--) {
+                if (arr[j] < arr[j - 1]) {
+                    CommonUtils.swap(arr, j, j - 1);
+                }
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] a = {3, 4, 6, 2, 1, 3};
+        int[] b = Arrays.copyOf(a, a.length);
         insertSort(a);
         System.out.println(Arrays.toString(a));
+        insertSort2(b);
+        System.out.println(Arrays.toString(b));
     }
 
 }

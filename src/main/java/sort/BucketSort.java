@@ -10,7 +10,7 @@ import java.util.Collections;
  * 不常用, 主要使用计数排序和基数排序
  */
 public class BucketSort {
-    public void sort(int[] arr) {
+    public static void sort(int[] arr) {
 
         int minVal = arr[0];
         int maxVal = arr[0];
@@ -44,8 +44,6 @@ public class BucketSort {
 
     public static void main(String[] args) {
         int[] a = {20, 16, 13, 8, 1};
-        BucketSort bucketSort = new BucketSort();
-        bucketSort.sort(a);
-
+        sort(a);
     }
 }

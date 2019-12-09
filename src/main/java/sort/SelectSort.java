@@ -9,7 +9,7 @@ import java.util.Arrays;
  * 稳定性: 不稳定
  */
 public class SelectSort {
-    private int[] selectSort(int[] a) {
+    private static int[] selectSort(int[] a) {
         int minIdx, temp;
         for (int i = 0; i < a.length; i++) { // i < a.length - 1 也行, 因为最后一个数已经是最大的数
             minIdx = i;
@@ -27,8 +27,7 @@ public class SelectSort {
     }
 
     public static void main(String[] args) {
-        SelectSort selectSort = new SelectSort();
-        int[] b = selectSort.selectSort(new int[]{5, 4, 3, 2, 1});
+        int[] b = selectSort(new int[]{5, 4, 3, 2, 1});
         System.out.println(Arrays.toString(b));
     }
 }
