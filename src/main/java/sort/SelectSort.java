@@ -1,5 +1,7 @@
 package sort;
 
+import util.CommonUtils;
+
 import java.util.Arrays;
 
 /**
@@ -10,7 +12,7 @@ import java.util.Arrays;
  */
 public class SelectSort {
     private static int[] selectSort(int[] a) {
-        int minIdx, temp;
+        int minIdx;
         for (int i = 0; i < a.length; i++) { // i < a.length - 1 也行, 因为最后一个数已经是最大的数
             minIdx = i;
             for (int j = i + 1; j < a.length; j++) {
@@ -19,9 +21,7 @@ public class SelectSort {
                 }
             }
             // 交换最小的数到前面
-            temp = a[i];
-            a[i] = a[minIdx];
-            a[minIdx] = temp;
+            CommonUtils.swap(a, i, minIdx);
         }
         return a;
     }

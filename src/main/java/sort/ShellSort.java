@@ -1,5 +1,7 @@
 package sort;
 
+import util.CommonUtils;
+
 import java.util.Arrays;
 
 /**
@@ -14,28 +16,21 @@ import java.util.Arrays;
 public class ShellSort {
     public static void shellSort(int[] data) {
         int j;
-        int temp;
-        for (int increment = data.length / 2; increment > 0; increment /= 2) {
-            for (int i = increment; i < data.length; i++) {
-                temp = data[i];
-                for (j = i; j >= increment; j -= increment) {
-                    if (temp < data[j - increment]) {
-                        data[j] = data[j - increment];
-                    } else {
-                        break;
+        for (int gap = data.length / 2; gap > 0; gap /= 2) {
+            for (int i = gap; i < data.length; i++) {
+                // 插入排序
+                for (j = i; j >= gap; j -= gap) {
+                    if (data[j] < data[j - gap]) {
+                        CommonUtils.swap(data, j, j - gap);
                     }
                 }
-                data[j] = temp;
             }
         }
     }
 
     public static void main(String[] args) {
         int[] data = new int[]{5, 2, 8, 9, 1, 3, 4};
-        System.out.println("排序前");
-        System.out.println(Arrays.toString(data));
         shellSort(data);
-        System.out.println("排序后");
         System.out.println(Arrays.toString(data));
     }
 

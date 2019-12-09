@@ -13,7 +13,7 @@ import java.util.Arrays;
  */
 public class RadixSort {
 
-    public static int[] sort(int[] arr) {
+    public static int[] lsdRadixSort(int[] arr) {
         int[] result = new int[arr.length];
         int[] count = new int[10]; // 计数排序要用的数组 (桶)
 
@@ -45,7 +45,7 @@ public class RadixSort {
 
     public static void main(String[] args) {
         int[] arr = {421, 240, 115, 532, 305, 430, 12};
-        int[] result = RadixSort.sort(arr);
+        int[] result = RadixSort.lsdRadixSort(arr);
         System.out.println(Arrays.toString(result));
     }
 }
