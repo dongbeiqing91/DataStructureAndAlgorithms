@@ -1,6 +1,5 @@
 package tryit;
 
-import javax.swing.*;
 import java.util.Arrays;
 
 /**
