@@ -9,6 +9,12 @@ public class BinaryTreeNode {
     private BinaryTreeNode lchild;
     private BinaryTreeNode rchild;
 
+    public BinaryTreeNode(int data) {
+        this.data = data;
+    }
+
+    public BinaryTreeNode() { }
+
     public int getData() {
         return data;
     }
