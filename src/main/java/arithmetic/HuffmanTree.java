@@ -105,11 +105,13 @@ public class HuffmanTree {
             int j = end + 1;
             while (true) {
                 // 找到大于分界值的元素的索引，或者i已经到了end处
-                while (i < end && nodes.get(++i).weight >= base.weight)
+                while (i < end && nodes.get(++i).weight >= base.weight) {
                     ;
+                }
                 // 找到小于分界值的元素的索引，或者j已经到了start处
-                while (j > start && nodes.get(--j).weight <= base.weight)
+                while (j > start && nodes.get(--j).weight <= base.weight) {
                     ;
+                }
 
                 if (i < j) {
                     swap(nodes, i, j);
