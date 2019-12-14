@@ -1,7 +1,7 @@
 package stack;
 
 
-import link.Node;
+import link.LinkNode;
 
 /**
  * 栈的链表实现
@@ -10,9 +10,9 @@ import link.Node;
  */
 public class LinkedStack {
     //栈底指针
-    private Node bottom;
+    private LinkNode bottom;
     //栈顶指针
-    private Node top;
+    private LinkNode top;
     //栈的当前大小
     private Integer size;
 
@@ -20,7 +20,7 @@ public class LinkedStack {
      * 栈的初始化
      */
     public void InitStack() {
-        top = bottom = new Node(0);
+        top = bottom = new LinkNode(0);
         size = 0;
     }
 
@@ -43,7 +43,7 @@ public class LinkedStack {
      * 入栈
      */
     public void Push(int element) {
-        Node newNode = new Node(element);
+        LinkNode newNode = new LinkNode(element);
         top.next = newNode;
         top = newNode;
         size++;
@@ -58,7 +58,7 @@ public class LinkedStack {
         }
         int e = top.data;
         size--; // 减小栈的大小
-        Node nowNode = bottom;
+        LinkNode nowNode = bottom;
         while (nowNode.next.next != null) { // 获取指向top的指针
             nowNode = nowNode.next;
         }
@@ -72,7 +72,7 @@ public class LinkedStack {
      * 获取指定位置的链表中的元素
      */
     public Integer getElement(int i) {
-        Node nowNode = bottom;
+        LinkNode nowNode = bottom;
         int j = 1;
         while (nowNode != null && nowNode.next != null) {
             nowNode = nowNode.next;

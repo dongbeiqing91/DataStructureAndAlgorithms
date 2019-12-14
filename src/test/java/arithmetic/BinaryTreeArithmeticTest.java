@@ -1,5 +1,6 @@
 package arithmetic;
 
+import arithmetic.tree.BinaryTreeArithmetic;
 import org.junit.Test;
 import tree.BinaryTree;
 import tree.BinaryTreeNode;

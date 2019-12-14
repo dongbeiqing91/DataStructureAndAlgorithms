@@ -4,13 +4,13 @@ package link;
  * @author Bei
  * @date 2019-10-09
  */
-public class Node {
-    public Node next;
+public class LinkNode {
+    public LinkNode next;
     public int data;
 
-    public Node() {}
+    public LinkNode() {}
 
-    public Node(int data) {
+    public LinkNode(int data) {
         this.data = data;
     }
 }

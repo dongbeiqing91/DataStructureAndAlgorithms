@@ -6,15 +6,15 @@ package link;
  */
 
 public class MyLink {
-    private Node head;
+    private LinkNode head;
 
     public void addNode(int d) {
-        Node newNode = new Node(d);
+        LinkNode newNode = new LinkNode(d);
         if (head == null) {
             head = newNode;
             return;
         }
-        Node tmp = head;
+        LinkNode tmp = head;
         while (tmp.next != null) {
             tmp = tmp.next;
         }
@@ -30,8 +30,8 @@ public class MyLink {
             return true;
         }
         int i = 1;
-        Node preNode = head;
-        Node curNode = preNode.next;
+        LinkNode preNode = head;
+        LinkNode curNode = preNode.next;
         while (curNode != null) {
             if (i == index) {
                 preNode.next = curNode.next;
@@ -46,7 +46,7 @@ public class MyLink {
 
     public int length() {
         int length = 0;
-        Node tmp = head;
+        LinkNode tmp = head;
         while (tmp != null) {
             length++;
             tmp = tmp.next;
@@ -54,7 +54,7 @@ public class MyLink {
         return length;
     }
 
-    public boolean deleteNode11(Node n) {
+    public boolean deleteNode11(LinkNode n) {
         if (n == null || n.next == null) {
             return false;
         }
@@ -67,14 +67,14 @@ public class MyLink {
     }
 
     public void printList() {
-        Node tmp = head;
+        LinkNode tmp = head;
         while (tmp != null) {
             System.out.println(tmp.data);
             tmp = tmp.next;
         }
     }
 
-    public void printListReversely(Node pListHead) {
+    public void printListReversely(LinkNode pListHead) {
         if (pListHead != null) {
             printListReversely(pListHead.next);
             System.out.println("printListReversely:" + pListHead.data);
@@ -87,8 +87,8 @@ public class MyLink {
      * @param head
      * @return
      */
-    public boolean IsLoop(Node head) {
-        Node fast = head, slow = head;
+    public boolean IsLoop(LinkNode head) {
+        LinkNode fast = head, slow = head;
         if (fast == null) {
             return false;
         }
@@ -109,8 +109,8 @@ public class MyLink {
      * @param head
      * @return
      */
-    public Node FindLoopPort(Node head) {
-        Node fast = head, slow = head;
+    public LinkNode FindLoopPort(LinkNode head) {
+        LinkNode fast = head, slow = head;
         while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;

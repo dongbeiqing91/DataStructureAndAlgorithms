@@ -1,4 +1,4 @@
-package arithmetic;
+package arithmetic.tree;
 
 import tree.BinarySortedTree;
 import tree.BinaryTreeNode;
