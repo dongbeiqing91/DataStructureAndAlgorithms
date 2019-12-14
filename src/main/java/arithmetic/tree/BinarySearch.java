@@ -4,7 +4,7 @@ public class BinarySearch {
 
     public static int binarySearch(int[] arr, int left, int right, int target) {
         while (left <= right) { // 当 left = right 时，区间 [left, right] 仍然有效
-            int mid = left + (right - left) / 2;
+            int mid = (right + left) / 2;
             if (arr[mid] == target) {
                 return mid;
             } else if (target > arr[mid]) {

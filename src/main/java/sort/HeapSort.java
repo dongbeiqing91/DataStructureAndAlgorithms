@@ -20,41 +20,41 @@ import java.util.Arrays;
 
 public class HeapSort {
 
-    private static void heapify(int[] tree, int n, int i) { // 对索引为i的结点做heapify
-        if (i >= n) {
-            return;
-        }
-        int lChild = 2 * i + 1;
-        int rChild = 2 * i + 2;
-        int max = i;
-        if (lChild < n && tree[lChild] > tree[max]) {
-            max = lChild;
-        }
-        if (rChild < n && tree[rChild] > tree[max]) {
-            max = rChild;
-        }
-        if (max != i) { // i已经是最大值, 无需做交换, 否则要做交换
-            CommonUtils.swap(tree, max, i);
-            heapify(tree, n, max); // max为被交换的元素的索引, 对其做heapify (因为交换后该元素子树受到了影响)
+    public static void heapSort(int[] tree) {
+        build_heap(tree, tree.length); // 先建立一个大顶堆
+        for (int i = tree.length - 1; i >= 0; i--) {
+            CommonUtils.swap(tree, i, 0); // 交换最后一个结点和根结点
+            heapify(tree, i - 1, 0); // 由于根结点发生变化, 大顶堆不复存在, 要重新恢复大顶堆
         }
     }
 
 
     private static void build_heap(int[] tree, int n) { // 建立完整的大顶堆
         int lastIndex = n - 1;
-        int parent = (lastIndex - 1) / 2;
+        int parent = (lastIndex - 1) / 2; // 父结点和子结点index之间的关系
         for (int i = parent; i >= 0; i--) { // 从最后一个结点的父节点开始, 向前直到根结点
             heapify(tree, n, i);
         }
     }
 
-    private static void heapSort(int[] tree) {
-        build_heap(tree, tree.length); // 先建立一个大顶堆
-        for (int i = tree.length - 1; i >= 0; i--) {
-            CommonUtils.swap(tree, i, 0); // 交换最后一个结点和根结点
-            heapify(tree, i - 1, 0); // 由于根结点发生变化, 大顶堆不复存在, 要重新恢复大顶堆
+    private static void heapify(int[] tree, int n, int i) { // 对索引为i的结点做heapify, n为最后一个元素
+        if (i >= n) {
+            return;
         }
-
+        int lChild = 2 * i + 1;
+        int rChild = 2 * i + 2;
+        int maxValuePosition = i;
+        // 找到最大值的位置
+        if (lChild < n && tree[lChild] > tree[maxValuePosition]) {
+            maxValuePosition = lChild;
+        }
+        if (rChild < n && tree[rChild] > tree[maxValuePosition]) {
+            maxValuePosition = rChild;
+        }
+        if (maxValuePosition != i) { // i已经是最大值, 无需做交换, 否则要做交换
+            CommonUtils.swap(tree, maxValuePosition, i);
+            heapify(tree, n, maxValuePosition); // maxValuePosition处被交换了, 对其做heapify (因为交换后该元素子树受到了影响)
+        }
     }
 
     public static void main(String[] args) {

@@ -12,18 +12,21 @@ import java.util.Arrays;
  */
 public class BubbleSort {
 
-    public static int[] bubbleSortAsc(int[] arr) {
+    // 由小到大
+    public static int[] bubbleSort(int[] arr) {
         for (int i = 0; i < arr.length; i++) {
             for (int j = 0; j < arr.length - i - 1; j++) {
-                CommonUtils.swap(arr, j, j + 1);
+                if (arr[j] > arr[j + 1]) {
+                    CommonUtils.swap(arr, j, j + 1);
+                }
             }
         }
         return arr;
     }
 
     public static void main(String[] args) {
-        int[] arr = {5, 4, 3, 2, 1};
-        int[] ints = bubbleSortAsc(arr);
+        int[] arr = {5, 4, 9, 6, 1};
+        int[] ints = bubbleSort(arr);
         System.out.println(Arrays.toString(ints));
     }
 }

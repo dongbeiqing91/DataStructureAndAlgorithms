@@ -14,15 +14,20 @@ import java.util.Arrays;
  * 稳定性: 不稳定
  */
 public class ShellSort {
-    public static void shellSort(int[] data) {
-        int j;
-        for (int gap = data.length / 2; gap > 0; gap /= 2) {
-            for (int i = gap; i < data.length; i++) {
-                // 插入排序
-                for (j = i; j >= gap; j -= gap) {
-                    if (data[j] < data[j - gap]) {
-                        CommonUtils.swap(data, j, j - gap);
+    public static void shellSort(int[] arr) {
+        for (int gap = arr.length / 2; gap > 0; gap /= 2) {
+            for (int i = gap; i < arr.length; i++) {
+                int cur = i;
+                // 从gap开始向前, 插入排序
+                // 如果要插入的值更小
+                if (arr[cur] < arr[cur - gap]) {
+                    int temp = arr[cur];
+                    // 移动数组元素,并继续向前寻找,知道要插入的值更大,即为要找的位置
+                    while (cur - gap >= 0 && temp < arr[cur - gap]) {
+                        arr[cur] = arr[cur - gap];
+                        cur -= gap;
                     }
+                    arr[cur] = temp;
                 }
             }
         }

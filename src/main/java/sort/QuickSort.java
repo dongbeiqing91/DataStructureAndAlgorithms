@@ -11,39 +11,38 @@ import java.util.Arrays;
  * 稳定性: 不稳定
  */
 public class QuickSort {
-    public static int[] quickSort(int[] a, int l, int r) {
-        if (l < r) {
-            int i, j, pivot;
-            i = l;
-            j = r;
-            pivot = a[i]; // 取出枢轴的值
-            System.out.printf("pivot = %d\n", pivot);
-            System.out.printf("before move: %s\n", Arrays.toString(a));
-            while (i < j) { // 左右下标不重合
-                while (i < j && a[j] > pivot) { // 右下标移动到比枢轴小的数
-                    j--;
-                }
-                if (i < j) {
-                    a[i++] = a[j]; // 在右半部分找到了比枢轴小的数, 移到左边部分, 左下标右移
-                }
-                while (i < j && a[i] < pivot) { // 左下标移动到比枢轴大的数
-                    i++;
-                }
-                if (i < j) {
-                    a[j--] = a[i]; // 将比枢轴大的数移到枢轴的右边
-                }
-            }
-            a[i] = pivot; // 枢轴移到中间, 即为左右下标重合的位置(所以这里写a[j] = pivot 也可以 因为 i == j ), 这样左边比枢轴都小, 右边比枢轴都大
-            System.out.printf("after move: %s\n\n", Arrays.toString(a));
-            quickSort(a, l, i - 1);
-            quickSort(a, i + 1, r);
+    public static void quickSort(int[] a, int left, int right) {
+        if (left > right) { // 重要, 否则会无限递归
+            return;
         }
-        return a;
+        int i = left;  // 左游标
+        int j = right; // 右游标
+        int pivot = a[left]; // 取出枢轴的值
+        System.out.printf("pivot = %d\n", pivot);
+        System.out.printf("before move: %s\n", Arrays.toString(a));
+        while (i < j) { // 左右下标不重合
+            while (i < j && a[j] > pivot) { // 右下标移动到比枢轴小的数
+                j--;
+            }
+            if (i < j) {
+                a[i++] = a[j]; // 在右半部分找到了比枢轴小的数, 移到左边部分, 左下标右移
+            }
+            while (i < j && a[i] < pivot) { // 左下标移动到比枢轴大的数
+                i++;
+            }
+            if (i < j) {
+                a[j--] = a[i]; // 将比枢轴大的数移到枢轴的右边
+            }
+        }
+        a[i] = pivot; // 枢轴移到中间, 即为左右下标重合的位置(所以这里写a[j] = pivot 也可以 因为 i == j ), 这样左边比枢轴都小, 右边比枢轴都大
+        System.out.printf("after move: %s\n\n", Arrays.toString(a));
+        quickSort(a, left, i - 1);
+        quickSort(a, i + 1, right);
     }
 
     public static void main(String[] args) {
         int[] a = {15, 5, 9, 18, 2, 21, 1, 4};
-        int[] b = quickSort(a, 0, a.length - 1);
-        System.out.println(Arrays.toString(b));
+        quickSort(a, 0, a.length - 1);
+        System.out.println(Arrays.toString(a));
     }
 }

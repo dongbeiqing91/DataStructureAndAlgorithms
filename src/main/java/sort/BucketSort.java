@@ -15,15 +15,15 @@ public class BucketSort {
         int minVal = arr[0];
         int maxVal = arr[0];
         //求出数组中最大值和最小值
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] < minVal) {
-                minVal = arr[i];
-            } else if (arr[i] > maxVal) {
-                maxVal = arr[i];
+        for (int item : arr) {
+            if (item < minVal) {
+                minVal = item;
+            } else if (item > maxVal) {
+                maxVal = item;
             }
         }
         //桶数
-        int bucketNum = (maxVal - minVal) / arr.length + 1; // 也不一定要分arr.length + 1 个桶
+        int bucketNum = (maxVal - minVal) / arr.length + 1; // 也不一定要分arr.length+1个桶, 这里举个栗子
         //创建一个二维数组存放桶和桶中的元素
         ArrayList<ArrayList<Integer>> bucketArr = new ArrayList<>(bucketNum);
         for (int i = 0; i < bucketNum; i++) {
