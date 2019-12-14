@@ -24,10 +24,10 @@ public class BinaryTreeArithmetic {
         if (binaryTreeNode == null) {
             return 0;
         }
-        if (binaryTreeNode.getLchild() == null && binaryTreeNode.getRchild() == null) {
+        if (binaryTreeNode.getLeftChild() == null && binaryTreeNode.getRightChild() == null) {
             return 1;
         } else {
-            return countWithPreOrder(binaryTreeNode.getLchild()) + countWithPreOrder(binaryTreeNode.getRchild());
+            return countWithPreOrder(binaryTreeNode.getLeftChild()) + countWithPreOrder(binaryTreeNode.getRightChild());
         }
     }
 
@@ -47,14 +47,14 @@ public class BinaryTreeArithmetic {
             stack[++top] = p;
             while (top > 0) {
                 p = stack[top--];
-                if (p.getRchild() == null && p.getLchild() == null) {
+                if (p.getRightChild() == null && p.getLeftChild() == null) {
                     sum++;
                 }
-                if (p.getRchild() != null) {
-                    stack[++top] = p.getRchild();
+                if (p.getRightChild() != null) {
+                    stack[++top] = p.getRightChild();
                 }
-                if (p.getLchild() != null) {
-                    stack[++top] = p.getLchild();
+                if (p.getLeftChild() != null) {
+                    stack[++top] = p.getLeftChild();
                 }
             }
         }
@@ -69,7 +69,7 @@ public class BinaryTreeArithmetic {
             return;
         }
         System.out.println(binaryTreeNode.getData());
-        preOrder(binaryTreeNode.getLchild());
-        preOrder(binaryTreeNode.getRchild());
+        preOrder(binaryTreeNode.getLeftChild());
+        preOrder(binaryTreeNode.getRightChild());
     }
 }

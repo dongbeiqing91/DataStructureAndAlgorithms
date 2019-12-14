@@ -15,10 +15,10 @@ public class MyLink {
             return;
         }
         LinkNode tmp = head;
-        while (tmp.next != null) {
-            tmp = tmp.next;
+        while (tmp.getNext() != null) {
+            tmp = tmp.getNext();
         }
-        tmp.next = newNode;
+        tmp.setNext(newNode);
     }
 
     public boolean deleteNode(int index) {
@@ -26,19 +26,19 @@ public class MyLink {
             return false;
         }
         if (index == 1) {
-            head = head.next;
+            head = head.getNext();
             return true;
         }
         int i = 1;
         LinkNode preNode = head;
-        LinkNode curNode = preNode.next;
+        LinkNode curNode = preNode.getNext();
         while (curNode != null) {
             if (i == index) {
-                preNode.next = curNode.next;
+                preNode.setNext(curNode.getNext());
                 return true;
             }
             preNode = curNode;
-            curNode = curNode.next;
+            curNode = curNode.getNext();
             i++;
         }
         return false;
@@ -49,19 +49,19 @@ public class MyLink {
         LinkNode tmp = head;
         while (tmp != null) {
             length++;
-            tmp = tmp.next;
+            tmp = tmp.getNext();
         }
         return length;
     }
 
     public boolean deleteNode11(LinkNode n) {
-        if (n == null || n.next == null) {
+        if (n == null || n.getNext() == null) {
             return false;
         }
-        int tmp = n.data;
-        n.data = n.next.data;
-        n.next.data = tmp;
-        n.next = n.next.next;
+        int tmp = n.getData();
+        n.setData(n.getNext().getData());
+        n.getNext().setData(tmp);
+        n.setNext(n.getNext().getNext());
         System.out.println("删除成功！");
         return true;
     }
@@ -69,15 +69,15 @@ public class MyLink {
     public void printList() {
         LinkNode tmp = head;
         while (tmp != null) {
-            System.out.println(tmp.data);
-            tmp = tmp.next;
+            System.out.println(tmp.getData());
+            tmp = tmp.getNext();
         }
     }
 
     public void printListReversely(LinkNode pListHead) {
         if (pListHead != null) {
-            printListReversely(pListHead.next);
-            System.out.println("printListReversely:" + pListHead.data);
+            printListReversely(pListHead.getNext());
+            System.out.println("printListReversely:" + pListHead.getNext());
         }
     }
 
@@ -92,15 +92,15 @@ public class MyLink {
         if (fast == null) {
             return false;
         }
-        while (fast != null && fast.next != null) {
-            fast = fast.next.next;
-            slow = slow.next;
+        while (fast != null && fast.getNext() != null) {
+            fast = fast.getNext().getNext();
+            slow = slow.getNext();
             if (fast == slow) {
                 System.out.println("该链表有环");
                 return true;
             }
         }
-        return !(fast == null || fast.next == null);
+        return !(fast == null || fast.getNext() == null);
     }
 
     /**
@@ -111,20 +111,20 @@ public class MyLink {
      */
     public LinkNode FindLoopPort(LinkNode head) {
         LinkNode fast = head, slow = head;
-        while (fast != null && fast.next != null) {
-            slow = slow.next;
-            fast = fast.next.next;
+        while (fast != null && fast.getNext() != null) {
+            slow = slow.getNext();
+            fast = fast.getNext().getNext();
             if (slow == fast) {
                 break;
             }
         }
-        if (fast == null || fast.next == null) {
+        if (fast == null || fast.getNext() == null) {
             return null;
         }
         slow = head;
         while (slow != fast) {
-            slow = slow.next;
-            fast = fast.next;
+            slow = slow.getNext();
+            fast = fast.getNext();
         }
         return slow;
     }
@@ -139,7 +139,7 @@ public class MyLink {
         list.addNode(55);
         list.addNode(36);
         System.out.println("linkLength:" + list.length());
-        System.out.println("head.data:" + list.head.data);
+        System.out.println("head.data:" + list.head.getData());
         list.printList();
         list.deleteNode(4);
         System.out.println("After deleteNode(4):");

@@ -6,8 +6,8 @@ package tree;
  */
 public class BinaryTreeNode {
     private int data;
-    private BinaryTreeNode lchild;
-    private BinaryTreeNode rchild;
+    private BinaryTreeNode leftChild;
+    private BinaryTreeNode rightChild;
 
     public BinaryTreeNode(int data) {
         this.data = data;
@@ -23,19 +23,19 @@ public class BinaryTreeNode {
         this.data = data;
     }
 
-    public BinaryTreeNode getLchild() {
-        return lchild;
+    public BinaryTreeNode getLeftChild() {
+        return leftChild;
     }
 
-    public void setLchild(BinaryTreeNode lchild) {
-        this.lchild = lchild;
+    public void setLeftChild(BinaryTreeNode leftChild) {
+        this.leftChild = leftChild;
     }
 
-    public BinaryTreeNode getRchild() {
-        return rchild;
+    public BinaryTreeNode getRightChild() {
+        return rightChild;
     }
 
-    public void setRchild(BinaryTreeNode rchild) {
-        this.rchild = rchild;
+    public void setRightChild(BinaryTreeNode rightChild) {
+        this.rightChild = rightChild;
     }
 }

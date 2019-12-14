@@ -14,8 +14,8 @@ public class PreOrderTraverse {
     public static void preOrderTraverse(BinaryTreeNode root) {
         if (root != null) {
             visit(root);
-            preOrderTraverse(root.getLchild());
-            preOrderTraverse(root.getRchild());
+            preOrderTraverse(root.getLeftChild());
+            preOrderTraverse(root.getRightChild());
         }
     }
 
@@ -35,8 +35,8 @@ public class PreOrderTraverse {
             BinaryTreeNode node = stack.pop();
             if (node != null) {
                 visit(node);
-                stack.push(node.getRchild());
-                stack.push(node.getLchild());
+                stack.push(node.getRightChild());
+                stack.push(node.getLeftChild());
             }
         }
     }

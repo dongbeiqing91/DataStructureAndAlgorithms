@@ -13,8 +13,8 @@ import tree.BinaryTreeNode;
 public class PostOrderTraverse {
     public static void postOrderTraverse(BinaryTreeNode root) {
         if (root != null) {
-            postOrderTraverse(root.getLchild());
-            postOrderTraverse(root.getRchild());
+            postOrderTraverse(root.getLeftChild());
+            postOrderTraverse(root.getRightChild());
             visit(root);
         }
     }

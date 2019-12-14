@@ -22,12 +22,12 @@ public class BinaryTree {
         BinaryTreeNode binaryTreeNode7 = new BinaryTreeNode();
         binaryTreeNode7.setData(7);
 
-        binaryTreeNode1.setLchild(binaryTreeNode2);
-        binaryTreeNode1.setRchild(binaryTreeNode3);
-        binaryTreeNode2.setLchild(binaryTreeNode4);
-        binaryTreeNode2.setRchild(binaryTreeNode5);
-        binaryTreeNode3.setLchild(binaryTreeNode6);
-        binaryTreeNode3.setRchild(binaryTreeNode7);
+        binaryTreeNode1.setLeftChild(binaryTreeNode2);
+        binaryTreeNode1.setRightChild(binaryTreeNode3);
+        binaryTreeNode2.setLeftChild(binaryTreeNode4);
+        binaryTreeNode2.setRightChild(binaryTreeNode5);
+        binaryTreeNode3.setLeftChild(binaryTreeNode6);
+        binaryTreeNode3.setRightChild(binaryTreeNode7);
 
         return binaryTreeNode1;
     }
@@ -44,10 +44,10 @@ public class BinaryTree {
         BinaryTreeNode binaryTreeNode5 = new BinaryTreeNode();
         binaryTreeNode5.setData(5);
 
-        binaryTreeNode1.setLchild(binaryTreeNode2);
-        binaryTreeNode1.setRchild(binaryTreeNode3);
-        binaryTreeNode2.setLchild(binaryTreeNode4);
-        binaryTreeNode2.setRchild(binaryTreeNode5);
+        binaryTreeNode1.setLeftChild(binaryTreeNode2);
+        binaryTreeNode1.setRightChild(binaryTreeNode3);
+        binaryTreeNode2.setLeftChild(binaryTreeNode4);
+        binaryTreeNode2.setRightChild(binaryTreeNode5);
 
         return binaryTreeNode1;
     }

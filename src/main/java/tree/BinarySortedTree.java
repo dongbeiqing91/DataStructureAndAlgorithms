@@ -9,12 +9,12 @@ public class BinarySortedTree {
         BinaryTreeNode node3 = new BinaryTreeNode(6);
         BinaryTreeNode node4 = new BinaryTreeNode(4);
         BinaryTreeNode node5 = new BinaryTreeNode(3);
-        root.setLchild(node1);
-        root.setRchild(node2);
-        node1.setLchild(node4);
-        node1.setRchild(node5);
-        node2.setLchild(node2);
-        node2.setLchild(node3);
+        root.setLeftChild(node1);
+        root.setRightChild(node2);
+        node1.setLeftChild(node4);
+        node1.setRightChild(node5);
+        node2.setLeftChild(node2);
+        node2.setLeftChild(node3);
         return root;
     }
 }

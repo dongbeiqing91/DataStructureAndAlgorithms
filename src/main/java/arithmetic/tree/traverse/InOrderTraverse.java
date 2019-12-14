@@ -13,9 +13,9 @@ import java.util.Stack;
 public class InOrderTraverse {
     public static void inOrderTraverse(BinaryTreeNode root) {
         if (root != null) {
-            inOrderTraverse(root.getLchild());
+            inOrderTraverse(root.getLeftChild());
             visit(root);
-            inOrderTraverse(root.getRchild());
+            inOrderTraverse(root.getRightChild());
         }
     }
 
@@ -28,14 +28,14 @@ public class InOrderTraverse {
     public static void inOrderTraverseNonRecursive(BinaryTreeNode root) {
         Stack<BinaryTreeNode> stack = new Stack<>();
         BinaryTreeNode current = root;
-        while (current != null || !stack.empty()) {
+        while (current != null || !stack.empty()) { // 注意
             while (current != null) { // 左孩子一直入栈
                 stack.add(current);
-                current = current.getLchild();
+                current = current.getLeftChild();
             }
             current = stack.pop(); // 直到左孩子为空, 开始出栈
             visit(current);
-            current = current.getRchild(); // 出栈元素的有孩子存在, 则入栈
+            current = current.getRightChild(); // 出栈元素的有孩子存在, 则入栈
         }
     }
 

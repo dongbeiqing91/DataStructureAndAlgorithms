@@ -11,9 +11,9 @@ public class BinarySortedTreeSearch {
                 return node;
             }
             if (target > node.getData()) {
-                return bstSearch(node.getRchild(), target);
+                return bstSearch(node.getRightChild(), target);
             } else {
-                return bstSearch(node.getLchild(), target);
+                return bstSearch(node.getLeftChild(), target);
             }
         }
         return null;

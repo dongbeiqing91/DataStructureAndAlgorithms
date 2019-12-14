@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.EmptyStackException;
 
 /**
- * 栈的数组实现
+ * 栈的数组实现, 网上复制的
  * 时间复杂度 : push 和 pop 均为：O(1)
  * 空间复杂度 : push 和 pop 均为：O(1)
  */
