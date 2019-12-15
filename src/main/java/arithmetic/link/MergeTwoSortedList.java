@@ -20,13 +20,12 @@ public class MergeTwoSortedList {
         System.out.println();
     }
 
-    public static void addLast(int i, LinkNode head) {
+    public static void add(int i, LinkNode head) {
         if (head != null) {
-            while (head.getNext() != null) {
-                head = head.getNext();
-            }
-            head.setNext(new LinkNode());
-            head.getNext().setData(i);
+            LinkNode next = head.getNext();
+            LinkNode newNode = new LinkNode(i);
+            head.setNext(newNode);
+            newNode.setNext(next);
         }
     }
 
@@ -59,18 +58,18 @@ public class MergeTwoSortedList {
 
     public static void main(String[] args) {
         LinkNode node1 = new LinkNode();
-        addLast(2, node1);
-        addLast(9, node1);
-        addLast(15, node1);
-        addLast(20, node1);
+        add(20, node1);
+        add(15, node1);
+        add(9, node1);
+        add(2, node1);
         printList(node1);
         LinkNode node2 = new LinkNode();
-        addLast(1, node2);
-        addLast(4, node2);
-        addLast(7, node2);
-        addLast(9, node2);
-        addLast(11, node2);
-        addLast(13, node2);
+        add(13, node2);
+        add(11, node2);
+        add(9, node2);
+        add(7, node2);
+        add(4, node2);
+        add(1, node2);
         printList(node2);
         printList(merge(node1, node2));
     }
