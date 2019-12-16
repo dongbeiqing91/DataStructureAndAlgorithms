@@ -11,24 +11,44 @@ import java.util.Arrays;
  * 时间复杂度O(n+k)
  * 空间复杂度O(n+k)
  * k为整数的范围
- * 稳定性: 不稳定, 思考:如何改成稳定?
+ * 稳定性: 稳定
  */
 public class CountSort {
+
+    // 稳定
     public static int[] sort(int[] arr, int maxVal) {
-        int[] newArr = new int[maxVal + 1];
-        for (int i = 0; i < arr.length; i++) {
-            newArr[arr[i]] += 1; // newArr[原数] = 个数
+        int[] result = new int[arr.length]; // 用于返回
+        int[] countArray = new int[maxVal + 1];
+        for (int value : arr) {
+            countArray[value]++; // countArray[原数] = 个数
+        }
+        for (int i = 1; i < countArray.length; i++) {
+            countArray[i] += countArray[i - 1]; // 意味着i这个数及它之前有countArray[i]个数, 也就是i在排序时放在countArray[i]这个位置
+        }
+        for (int j = arr.length - 1; j >= 0; j--) {
+            int value = arr[j];
+            // for循环是倒着遍历的, 相同的数, index大的也是放在后面一个, 所以算法是稳定的
+            result[--countArray[value]] = value; // -- 有个作用: 1)index是位置-1; 2)重复的数的个数-1
+        }
+        return result;
+    }
+
+    // 这么写是不稳定的, 但是少用了一个辅助数组
+    public static void sort_unstable(int[] arr, int maxVal) {
+        int[] countArray = new int[maxVal + 1];
+        for (int value : arr) {
+            countArray[value]++; // countArray[原数] = 个数
         }
         int idx = 0;
-        for (int i = 0; i < newArr.length; i++) {
-            if (newArr[i] == 0) { // 等于0说明没有i这个数
+        for (int i = 0; i < countArray.length; i++) {
+            if (countArray[i] == 0) { // 等于0说明没有i这个数
                 continue;
             }
-            for (int j = 0; j < newArr[i]; j++) {
+            // 这么写,i如果在原数组中存在一样的数, 那i在前在后就不知道, 所以不稳定
+            for (int j = 0; j < countArray[i]; j++) {
                 arr[idx++] = i;
             }
         }
-        return arr;
     }
 
     private static int findMax(int[] arr) {
@@ -42,8 +62,12 @@ public class CountSort {
     }
 
     public static void main(String[] args) {
-        int[] arr = {500, 4, 3, 2, 1};
-        int[] b = sort(arr, findMax(arr));
-        System.out.println(Arrays.toString(b));
+        int[] arr = {5, 4, 3, 2, 1};
+        int[] res1 = sort(arr, findMax(arr));
+        System.out.println(Arrays.toString(res1));
+
+        int[] arr2 = {5, 4, 3, 2, 1};
+        sort_unstable(arr2, findMax(arr));
+        System.out.println(Arrays.toString(arr2));
     }
 }
