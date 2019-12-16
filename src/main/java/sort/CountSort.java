@@ -23,7 +23,7 @@ public class CountSort {
             countArray[value]++; // countArray[原数] = 个数
         }
         for (int i = 1; i < countArray.length; i++) {
-            countArray[i] += countArray[i - 1]; // 意味着i这个数及它之前有countArray[i]个数, 也就是i在排序时放在countArray[i]这个位置
+            countArray[i] += countArray[i - 1]; // 意味着i这个数及它之前有countArray[i]个数, 也就是i在排序时放在countArray[i]-1这个位置
         }
         for (int j = arr.length - 1; j >= 0; j--) {
             int value = arr[j];
