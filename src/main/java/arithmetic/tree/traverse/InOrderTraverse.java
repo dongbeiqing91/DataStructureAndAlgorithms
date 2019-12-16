@@ -35,7 +35,7 @@ public class InOrderTraverse {
             }
             current = stack.pop(); // 直到左孩子为空, 开始出栈
             visit(current);
-            current = current.getRightChild(); // 出栈元素的有孩子存在, 则入栈
+            current = current.getRightChild(); // 出栈元素的右孩子存在, 则入栈
         }
     }
 
