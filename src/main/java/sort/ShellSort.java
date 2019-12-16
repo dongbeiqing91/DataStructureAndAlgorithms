@@ -1,7 +1,5 @@
 package sort;
 
-import util.CommonUtils;
-
 import java.util.Arrays;
 
 /**
