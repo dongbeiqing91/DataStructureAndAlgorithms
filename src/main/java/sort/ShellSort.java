@@ -1,7 +1,5 @@
 package sort;
 
-import util.CommonUtils;
-
 import java.util.Arrays;
 
 /**
@@ -22,7 +20,7 @@ public class ShellSort {
                 // 如果要插入的值更小
                 if (arr[cur] < arr[cur - gap]) {
                     int temp = arr[cur];
-                    // 移动数组元素,并继续向前寻找,知道要插入的值更大,即为要找的位置
+                    // 移动数组元素,并继续向前寻找,直到要插入的值更大时,即为要找的位置
                     while (cur - gap >= 0 && temp < arr[cur - gap]) {
                         arr[cur] = arr[cur - gap];
                         cur -= gap;

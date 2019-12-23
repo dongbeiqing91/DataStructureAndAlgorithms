@@ -37,7 +37,7 @@ public class HeapSort {
         }
     }
 
-    private static void heapify(int[] tree, int n, int i) { // 对索引为i的结点做heapify, n为最后一个元素
+    private static void heapify(int[] tree, int n, int i) { // 对索引为i的结点做heapify, n为数组长度
         if (i >= n) {
             return;
         }
