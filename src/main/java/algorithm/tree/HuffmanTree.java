@@ -1,4 +1,4 @@
-package arithmetic.tree;
+package algorithm.tree;
 
 
 import java.util.ArrayDeque;

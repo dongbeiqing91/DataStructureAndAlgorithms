@@ -1,4 +1,4 @@
-package arithmetic.link;
+package algorithm.link;
 
 import link.LinkNode;
 

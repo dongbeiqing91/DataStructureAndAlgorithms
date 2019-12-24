@@ -1,4 +1,4 @@
-package arithmetic.tree.traverse;
+package algorithm.tree.traverse;
 
 import tree.BinaryTree;
 import tree.BinaryTreeNode;
