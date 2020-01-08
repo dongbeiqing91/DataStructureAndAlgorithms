@@ -1,4 +1,4 @@
-package algorithm.link;
+package algorithm.leetcode;
 
 import link.LinkNode;
 
