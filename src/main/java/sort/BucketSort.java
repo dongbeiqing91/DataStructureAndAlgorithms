@@ -25,9 +25,9 @@ public class BucketSort {
         //桶数
         int bucketNum = (maxVal - minVal) / arr.length + 1; // 也不一定要分arr.length+1个桶, 这里举个栗子
         //创建一个二维数组存放桶和桶中的元素
-        ArrayList<ArrayList<Integer>> bucketArr = new ArrayList<>(bucketNum);
+        ArrayList<ArrayList<Integer>> bucketArr = new ArrayList<ArrayList<Integer>>(bucketNum);
         for (int i = 0; i < bucketNum; i++) {
-            bucketArr.add(new ArrayList<>());
+            bucketArr.add(new ArrayList<Integer>());
         }
         //将每个元素放入桶
         for (int value : arr) {
